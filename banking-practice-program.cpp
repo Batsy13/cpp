@@ -60,6 +60,12 @@ double deposit()
     std::cout << "Enter amount to be deposited: ";
     std::cin >> amount;
 
+    if (amount > 0) {
+        return amount;
+    } else {
+        std::cout << "That's not a valid amount";
+    }
+
     return amount;
 }
 
@@ -73,6 +79,9 @@ double withdraw(double balance)
 
     if(amount > balance){
         std::cout << "Cannot withdraw value bigger than your balance\n";
+        return 0;
+    } else if (amount < 0) {
+        std::cout << "That's not a valid amount\n";
         return 0;
     } else {
         std::cout << "Removing " << amount << "\n";
